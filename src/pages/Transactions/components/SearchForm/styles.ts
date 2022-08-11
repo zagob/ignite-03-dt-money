@@ -42,5 +42,11 @@ export const SearchFormContainer = styled.form`
       color: ${(props) => props.theme.white};
       border-color: ${(props) => props.theme["green-500"]};
     }
+
+    @media (max-width: 600px) {
+      span {
+        display: none;
+      }
+    }
   }
 `;

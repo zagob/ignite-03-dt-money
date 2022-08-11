@@ -1,3 +1,4 @@
+import { TagChevron } from "phosphor-react";
 import { useContextSelector } from "use-context-selector";
 import { Header } from "../../components/Header";
 import { Summary } from "../../components/Summary";
@@ -6,8 +7,10 @@ import { dateFormatter, priceFormatter } from "../../utils/formatter";
 import { SearchForm } from "./components/SearchForm";
 import {
   PriceHighlight,
+  PriceHighlightMobile,
   TransactionsContainer,
   TransactionsTable,
+  TransactionsTableMobile,
 } from "./styles";
 
 export function Transactions() {
@@ -37,6 +40,25 @@ export function Transactions() {
             ))}
           </tbody>
         </TransactionsTable>
+
+        {transactions?.map((transaction) => (
+          <TransactionsTableMobile key={transaction.id}>
+            <h2>{transaction.description}</h2>
+            <PriceHighlightMobile variant={transaction.type}>
+              {transaction.type === "outcome" && "- "}
+              {priceFormatter.format(transaction.price)}
+            </PriceHighlightMobile>
+            <div>
+              <span>
+                <TagChevron />
+                {transaction.category}
+              </span>
+              <time>
+                {dateFormatter.format(new Date(transaction.createdAt))}
+              </time>
+            </div>
+          </TransactionsTableMobile>
+        ))}
       </TransactionsContainer>
     </>
   );

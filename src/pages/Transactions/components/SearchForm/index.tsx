@@ -43,7 +43,7 @@ function SearchFormComponent() {
 
       <button type="submit" disabled={isSubmitting}>
         <MagnifyingGlass size={20} />
-        {isSubmitting ? "Buscando..." : "Buscar"}
+        <span>{isSubmitting ? "Buscando..." : "Buscar"}</span>
       </button>
     </SearchFormContainer>
   );

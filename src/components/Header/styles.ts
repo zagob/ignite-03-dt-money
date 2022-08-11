@@ -31,4 +31,23 @@ export const NewTransactionButton = styled.button`
     transition: background-color 0.2s;
     background: ${(props) => props.theme["green-700"]};
   }
+
+  @media (max-width: 600px) {
+    height: 35px;
+  }
+`;
+
+export const LgImage = styled.div`
+  overflow-x: hidden;
+  @media (max-width: 600px) {
+    display: none;
+  }
+`;
+export const SmImage = styled.div`
+  overflow-x: hidden;
+  display: none;
+
+  @media (max-width: 600px) {
+    display: block;
+  }
 `;
